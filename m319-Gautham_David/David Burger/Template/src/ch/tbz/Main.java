@@ -20,14 +20,22 @@ public class Main {
         out.println();
 
         // Input
-        double a = inputDouble("Geben Sie die Seite a ein: ");
-        double b = inputDouble("Geben Sie die Seite b ein: ");
+        double Zahl1 = inputDouble("Geben Sie die 1. Zahl ein: ");
+        double Zahl2 = inputDouble("Geben Sie die 2. Zahl ein: ");
 
         // Calculation
-        double c = Math.sqrt(Math.pow(a,2) + pow(b,2));
+        double ergebnis_dreiecksberechnung = Math.sqrt(Math.pow(Zahl1,2) + pow(Zahl2,2));
+        double ergebnis_addition = Zahl1 + Zahl2;
+        double ergebnis_subtraktion = Zahl1 - Zahl2;
+        double ergebnis_multiplikation = Zahl1 * Zahl2;
+        double ergebnis_division = Zahl1 / Zahl2;
 
         // System.Out function (Short version)
-        out.println("Das Resultat ist: " + c);
+        out.println("Das Resultat der Dreiecksberechnung ist: " + ergebnis_dreiecksberechnung);
+        out.println("Das Resultat der Addition ist: " + ergebnis_addition);
+        out.println("Das Resultat der Subtraktion ist: " + ergebnis_subtraktion);
+        out.println("Das Resultat der Multiplikation ist: " + ergebnis_multiplikation);
+        out.println("Das Resultat der Division ist: " + ergebnis_division);
 
 
         Random random = new Random();
