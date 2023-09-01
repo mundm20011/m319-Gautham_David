@@ -1,4 +1,4 @@
-	1. Bei GitHub Anmelden/Registriren
+	1. Ich habe mich bei GitHub Registriert
 	2. Ich habe ein Repositorie erstellt
 	3. Ich habe Ein Ordner für mich und für Mein Tantem partner Gautham erstellt
 	4. Ich habe mithilfe der befehlen: 
