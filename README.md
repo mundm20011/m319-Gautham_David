@@ -1,1 +1,13 @@
-"# m319-Gautham_David" 
+	1. Bei GitHub Anmelden/Registriren
+	2. Ich habe ein Repositorie erstellt
+	3. Ich habe Ein Ordner für mich und für Mein Tantem partner Gautham erstellt
+	4. Ich habe mithilfe der befehlen: 
+		echo "# test" >> README.md
+		git init
+		git add README.md
+		git commit -m "first commit"
+		git branch -M main
+		git remote add origin https://github.com/mundm20011/test.git
+		git push -u origin main
+	
+	5. Ein erster push gemacht damit etwas auf den Repositorie drauf ist
