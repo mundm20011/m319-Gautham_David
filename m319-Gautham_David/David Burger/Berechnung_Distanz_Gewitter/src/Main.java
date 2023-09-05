@@ -13,27 +13,27 @@ public class Main {
 		public static void main( String[] args ) {
 
 			//definition variables:
-			double gallons;
-			double litres;
+			double celsius;
+			double fahrenheit;
 
 			//assigns a value:
-			gallons = 0;
+			celsius = 0;
 
 			//calculates results:
-			litres = gallons / 3.7854;
+			fahrenheit = celsius * 9 / 5 + 32;
 
-			while (gallons < 100) {
-				gallons = gallons + 1;
-				if (gallons == 10 || gallons == 20 || gallons == 30 || gallons == 40 || gallons == 50 || gallons == 60 || gallons == 70 || gallons == 80 || gallons == 90) {
-					//System.out.println(gallons + " gallons is " + litres + " litres.");
-					System.out.println(gallons + "/" + litres + "//");
+			while (celsius < 100) {
+				celsius = celsius + 1;
+				if (celsius == 10 || celsius == 20 || celsius == 30 || celsius == 40 || celsius == 50 || celsius == 60 || celsius == 70 || celsius == 80 || celsius == 90) {
+					//System.out.println(celsius + " celsius is " + fahrenheit + " fahrenheit.");
+					System.out.println(celsius + "/" + fahrenheit + "//");
 				} else {
-				//System.out.print(gallons + " gallons is " + litres + " litres.");
-				System.out.print(gallons + "/" + litres + "//");
+				//System.out.print(celsius + " celsius is " + fahrenheit + " fahrenheit.");
+				System.out.print(celsius + "/" + fahrenheit + "//");
 				}
 			}
 
 			//print out using the System libary:
-			//System.out.println(gallons + " gallons is " + litres + " litres.");
+			//System.out.println(celsius + " celsius is " + fahrenheit + " fahrenheit.");
 		}
 }
