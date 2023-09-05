@@ -1,10 +1,16 @@
+/*Celsius – Fahrenheit Berechner
+Schreiben Sie ein Programm, das dem Benutzer erlaubt, entweder die Grad in
+Celcius oder Fahrenheit zu berechnen. Überlegen Sie sich zuerst, welche
+Datentypen Sie verwenden sollten.
+Geben Sie eine Meldung aus, wenn die Temperatur unter 0℃ (Gefrierpunkt), oder 100℃ (Siedepunkt) ist! */
+
 // Defines package
 //package ch.tbz;
 
 // Imports libraries
 
 // Imports Input functions
-//import static lib.Input.*;       // All the functions can be used now!
+import static lib.Input.*;       // All the functions can be used now!
 
 //Every program must be placed in a class ...
 public class Main {
@@ -13,27 +19,17 @@ public class Main {
 		public static void main( String[] args ) {
 
 			//definition variables:
-			double gallons;
-			double litres;
+			double fahrenheit;
 
 			//assigns a value:
-			gallons = 0;
+			double celsius = inputDouble("Geben sie die Temperatur in Grand Celsius ein: ");
 
 			//calculates results:
-			litres = gallons / 3.7854;
+			fahrenheit = (celsius * 9 / 5 + 32);
 
-			while (gallons < 100) {
-				gallons = gallons + 1;
-				if (gallons == 10 || gallons == 20 || gallons == 30 || gallons == 40 || gallons == 50 || gallons == 60 || gallons == 70 || gallons == 80 || gallons == 90) {
-					//System.out.println(gallons + " gallons is " + litres + " litres.");
-					System.out.println(gallons + "/" + litres + "//");
-				} else {
-				//System.out.print(gallons + " gallons is " + litres + " litres.");
-				System.out.print(gallons + "/" + litres + "//");
-				}
-			}
+			System.out.println(celsius + "//" + fahrenheit);
 
 			//print out using the System libary:
-			//System.out.println(gallons + " gallons is " + litres + " litres.");
+			//System.out.println(celsius + " celsius is " + fahrenheit + " fahrenheit.");
 		}
 }
