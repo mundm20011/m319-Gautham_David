@@ -3,6 +3,7 @@ Schreiben Sie ein Programm, das dem Benutzer erlaubt, entweder die Grad in
 Celcius oder Fahrenheit zu berechnen. Überlegen Sie sich zuerst, welche
 Datentypen Sie verwenden sollten.
 Geben Sie eine Meldung aus, wenn die Temperatur unter 0℃ (Gefrierpunkt), oder 100℃ (Siedepunkt) ist! */
+//fahrenheit = (celsius * 9 / 5 + 32);
 
 // Defines package
 //package ch.tbz;
