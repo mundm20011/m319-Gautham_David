@@ -20,22 +20,27 @@ public class Main {
         out.println();
 
         // Input
-        double Zahl1 = inputDouble("Geben Sie die 1. Zahl ein: ");
-        double Zahl2 = inputDouble("Geben Sie die 2. Zahl ein: ");
+        double a = inputDouble("Geben Sie die Seite a ein: ");
+        double b = inputDouble("Geben Sie die Seite b ein: ");
+        int Zahl1 = inputInt("Geben Sie die 1. Zahl ein: ");
+        int Zahl2 = inputInt("Geben Sie die 2. Zahl ein: ");
+        String name = inputString("Bitte geben sie ihren vollständigen Namen an: ");
+        String adress = inputString("Bitte geben sie ihre Adresse an: ");
 
         // Calculation
-        double ergebnis_dreiecksberechnung = Math.sqrt(Math.pow(Zahl1,2) + pow(Zahl2,2));
-        double ergebnis_addition = Zahl1 + Zahl2;
-        double ergebnis_subtraktion = Zahl1 - Zahl2;
-        double ergebnis_multiplikation = Zahl1 * Zahl2;
-        double ergebnis_division = Zahl1 / Zahl2;
+        double c = Math.sqrt(Math.pow(a,2) + pow(b,2));
+        int ergebnis_addition = Zahl1 + Zahl2;
+        int ergebnis_subtraktion = Zahl1 - Zahl2;
+        int ergebnis_multiplikation = Zahl1 * Zahl2;
+        int ergebnis_division = Zahl1 / Zahl2;
 
         // System.Out function (Short version)
-        out.println("Das Resultat der Dreiecksberechnung ist: " + ergebnis_dreiecksberechnung);
+        out.println("Das Resultat ist: " + c);
         out.println("Das Resultat der Addition ist: " + ergebnis_addition);
         out.println("Das Resultat der Subtraktion ist: " + ergebnis_subtraktion);
         out.println("Das Resultat der Multiplikation ist: " + ergebnis_multiplikation);
         out.println("Das Resultat der Division ist: " + ergebnis_division);
+        out.println("Guten tag " + name + " Anhand der eingegebene informationen Wohnen sie bei der Adresse: " + adress);
 
 
         Random random = new Random();

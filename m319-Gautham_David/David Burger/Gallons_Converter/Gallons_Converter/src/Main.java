@@ -1,0 +1,28 @@
+// Defines package
+//package ch.tbz;
+
+// Imports libraries
+
+// Imports Input functions
+//import static lib.Input.*;       // All the functions can be used now!
+
+//Every program must be placed in a class ...
+public class Main {
+
+    //our main function which runs the program
+		public static void main( String[] args ) {
+
+			//definition variables:
+			double gallons;
+			double litres;
+
+			//assigns a value:
+			gallons = 10;
+
+			//calculates results:
+			litres = gallons / 3.7854;
+
+			//print out using the System libary:
+			System.out.println(gallons + " gallons is " + litres + " litres.");
+		}
+}
