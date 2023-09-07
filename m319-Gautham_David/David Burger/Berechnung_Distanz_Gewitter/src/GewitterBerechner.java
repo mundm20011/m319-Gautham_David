@@ -15,12 +15,14 @@ Wiederholen Sie die Berechnung, wenn der Benutzer dies wünscht (Do ... while) *
 import static lib.Input.*;       // All the functions can be used now!
 
 //Every program must be placed in a class ...
-public class Main {
+public class GewitterBerechner {
 
     //our main function which runs the program
 		public static void main( String[] args ) {
 
 			//definition variables:
+			String weiter;
+			do {
 			double sekunde = inputDouble("bitte geben die sekunden ein");
 			double schallgeschwindigkeit;
 			double distanz;
@@ -37,6 +39,9 @@ public class Main {
 
 			System.out.println("Das Gewitter ist " + distanz + "m entfernt");
 			System.out.println("Das Gewitter ist " + distanzkm + "km entfernt");
+			weiter = inputString("Wollen sie eine weitere zahl eingeben? ");
+			}
+			while (weiter.equals("ja"));
 
 			//print out using the System libary:
 			//System.out.println(distanz + " distanz is " + schallgeschwindigkeit + " schallgeschwindigkeit.");
