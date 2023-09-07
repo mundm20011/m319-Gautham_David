@@ -24,25 +24,19 @@ public class Main {
 			double sekunde = inputDouble("bitte geben die sekunden ein");
 			double schallgeschwindigkeit;
 			double distanz;
+			double distanzkm;
 
 			//assigns a value:
 			distanz = 0;
+			schallgeschwindigkeit = 344;
 
 			//calculates results:
-			schallgeschwindigkeit = distanz / 3.7854;
-			schallgeschwindigkeit = 344;
 			distanz = schallgeschwindigkeit * sekunde;
+			distanzkm = distanz / 1000;
+			//distanz = wie viel meter das gewiter entfernt ist
 
-			while (distanz < 100) {
-				distanz = distanz + 1;
-				if (distanz == 10 || distanz == 20 || distanz == 30 || distanz == 40 || distanz == 50 || distanz == 60 || distanz == 70 || distanz == 80 || distanz == 90) {
-					//System.out.println(distanz + " distanz is " + schallgeschwindigkeit + " schallgeschwindigkeit.");
-					System.out.println(distanz + "/" + schallgeschwindigkeit + "//");
-				} else {
-				//System.out.print(distanz + " distanz is " + schallgeschwindigkeit + " schallgeschwindigkeit.");
-				System.out.print(distanz + "/" + schallgeschwindigkeit + "//");
-				}
-			}
+			System.out.println("Das Gewitter ist " + distanz + "m entfernt");
+			System.out.println("Das Gewitter ist " + distanzkm + "km entfernt");
 
 			//print out using the System libary:
 			//System.out.println(distanz + " distanz is " + schallgeschwindigkeit + " schallgeschwindigkeit.");

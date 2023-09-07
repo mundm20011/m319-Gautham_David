@@ -21,12 +21,12 @@ public class Main {
 		public static void main( String[] args ) {
 
 			//eingabe auswahl:
-			System.out.println("Bitte geben sie ein ob sie Grad->Fahrenheit oder Fahrenheit->Grad erfahren wollen");
-			String auswahl = inputString("//grad/fahrenheit: ");
-			String grad = "grad";
+			System.out.print("Bitte geben sie ein ob sie Grad celsius->Fahrenheit oder Fahrenheit->Grad celsius erfahren wollen");
+			String auswahl = inputString(" //celsius/fahrenheit: ");
+			String grad = "celsius";
 
 			//assigns a value:
-			if (auswahl == grad) {
+			if (auswahl.equals(grad)) {
 			double celsius = inputDouble("Geben sie die Temperatur in Grad Celsius ein: ");
 			double fahrenheit;
 			fahrenheit = (celsius * 9 / 5 + 32);
@@ -37,13 +37,13 @@ public class Main {
 					System.out.println("Die Temperatur hat der Gefrierpunkt erreicht");
 				}
 			} else {
-				double fahrenheit = inputDouble("Geben sie die Temperatur in Grad Fahrenheit ein: ");
+				double fahrenheit = inputDouble("Geben sie die Temperatur in grad Fahrenheit ein: ");
 				double celsius;
-				celsius = ((fahrenheit - 32) / 5 * 9);
+				celsius = ((fahrenheit - 32) * 5 / 9);
 				System.out.println(fahrenheit + "//" + celsius);
-				if (celsius <= 100) {
+				if (celsius >= 100) {
 					System.out.println("Die Temperatur hat der Siedepunkt erreicht");
-				} if (celsius >= 0) {
+				} if (celsius <= 0) {
 					System.out.println("Die Temperatur hat der Gefrierpunkt erreicht");
 				}
 			}
