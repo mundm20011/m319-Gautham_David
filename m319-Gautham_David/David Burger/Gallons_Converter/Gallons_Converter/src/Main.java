@@ -17,12 +17,23 @@ public class Main {
 			double litres;
 
 			//assigns a value:
-			gallons = 10;
+			gallons = 0;
 
 			//calculates results:
 			litres = gallons / 3.7854;
 
+			while (gallons < 100) {
+				gallons = gallons + 1;
+				if (gallons == 10 || gallons == 20 || gallons == 30 || gallons == 40 || gallons == 50 || gallons == 60 || gallons == 70 || gallons == 80 || gallons == 90) {
+					//System.out.println(gallons + " gallons is " + litres + " litres.");
+					System.out.println(gallons + "/" + litres + "//");
+				} else {
+				//System.out.print(gallons + " gallons is " + litres + " litres.");
+				System.out.print(gallons + "/" + litres + "//");
+				}
+			}
+
 			//print out using the System libary:
-			System.out.println(gallons + " gallons is " + litres + " litres.");
+			//System.out.println(gallons + " gallons is " + litres + " litres.");
 		}
 }
