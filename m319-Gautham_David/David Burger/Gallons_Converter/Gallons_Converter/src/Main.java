@@ -18,18 +18,22 @@ public class Main {
 
 			//assigns a value:
 			gallons = 0;
+			int zähler = 0;
 
 			//calculates results:
 			litres = gallons / 3.7854;
 
-			while (gallons < 100) {
+			while (zähler < 100) {
 				gallons = gallons + 1;
+				zähler = zähler + 1;
+				litres = gallons / 3.7854;
 				if (gallons == 10 || gallons == 20 || gallons == 30 || gallons == 40 || gallons == 50 || gallons == 60 || gallons == 70 || gallons == 80 || gallons == 90) {
 					//System.out.println(gallons + " gallons is " + litres + " litres.");
-					System.out.println(gallons + "/" + litres + "//");
+					System.out.println(gallons + "/" + litres);
+					System.out.println("");
 				} else {
 				//System.out.print(gallons + " gallons is " + litres + " litres.");
-				System.out.print(gallons + "/" + litres + "//");
+				System.out.println(gallons + "/" + litres);
 				}
 			}
 
