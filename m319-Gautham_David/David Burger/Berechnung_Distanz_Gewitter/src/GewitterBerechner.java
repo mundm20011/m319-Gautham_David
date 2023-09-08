@@ -23,10 +23,10 @@ public class GewitterBerechner {
 			//definition variables:
 			String weiter;
 			do {
-			double sekunde = inputDouble("bitte geben die sekunden ein");
-			double schallgeschwindigkeit;
-			double distanz;
-			double distanzkm;
+			float sekunde = inputFloat("bitte geben die sekunden ein");
+			float schallgeschwindigkeit;
+			float distanz;
+			float distanzkm;
 
 			//assigns a value:
 			distanz = 0;
@@ -37,7 +37,7 @@ public class GewitterBerechner {
 			distanzkm = distanz / 1000;
 			//distanz = wie viel meter das gewiter entfernt ist
 
-			System.out.println("Das Gewitter ist " + distanz + "m entfernt");
+			//System.out.println("Das Gewitter ist " + distanz + "m entfernt");
 			System.out.println("Das Gewitter ist " + distanzkm + "km entfernt");
 			weiter = inputString("Wollen sie eine weitere zahl eingeben? ");
 			}

@@ -27,8 +27,8 @@ public class Main {
 
 			//assigns a value:
 			if (auswahl.equals(grad)) {
-			double celsius = inputDouble("Geben sie die Temperatur in Grad Celsius ein: ");
-			double fahrenheit;
+			float celsius = inputFloat("Geben sie die Temperatur in Grad Celsius ein: ");
+			float fahrenheit;
 			fahrenheit = (celsius * 9 / 5 + 32);
 			System.out.println(celsius + "//" + fahrenheit);
 				if (celsius >= 100) {
@@ -37,8 +37,8 @@ public class Main {
 					System.out.println("Die Temperatur hat der Gefrierpunkt erreicht");
 				}
 			} else {
-				double fahrenheit = inputDouble("Geben sie die Temperatur in grad Fahrenheit ein: ");
-				double celsius;
+				float fahrenheit = inputFloat("Geben sie die Temperatur in grad Fahrenheit ein: ");
+				float celsius;
 				celsius = ((fahrenheit - 32) * 5 / 9);
 				System.out.println(fahrenheit + "//" + celsius);
 				if (celsius >= 100) {
