@@ -65,7 +65,5 @@ public class Main {
             wiederholen = inputString("Do you want to test again? Yes or no?");
         } while (wiederholen.equals("yes"));
         System.out.println("Okay, goodbye!");
-
-
     }
 }
