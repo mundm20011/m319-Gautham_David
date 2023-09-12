@@ -31,17 +31,39 @@ public class Main {
         int zahl1;
         int zahl2;
         int lösung;
-        zahl1 = random.nextInt(101);
-        zahl2 = random.nextInt(101);
-        lösung = zahl1 + zahl2;
-        
+        String wiederholen;
 
-        String operator = inputString("What do you want to train? +, - or * ?");
-        System.out.println(zahl1 + " + " + zahl2 + " = ?");
-        String ergebnis = inputString("Enter the second number: ");
-        System.out.println("Users enters " + ergebnis);
-        System.out.println("WRONG: The Result is " + lösung);
-        String wiederholen = inputString("Do you want to test again? Yes or no?");
+        lösung = 0+0;
+        
+        do {
+            String operator = inputString("What do you want to train? +, - or * ?");
+            do {
+                zahl1 = random.nextInt(101);
+                zahl2 = random.nextInt(101);
+                if (operator.equals("+")) {
+                    lösung = zahl1 + zahl2;
+                } if (operator.equals("-")) {
+                    lösung = zahl1 - zahl2;
+                } if (operator.equals("*")) {
+                    lösung = zahl1 * zahl2;
+                }
+            } while (lösung > 100);
+            if (operator.equals("+")) {
+                System.out.println(zahl1 + " + " + zahl2 + " = ?");
+            } if (operator.equals("-")) {
+                System.out.println(zahl1 + " - " + zahl2 + " = ?");
+            } if (operator.equals("*")) {
+                System.out.println(zahl1 + " * " + zahl2 + " = ?");
+            }
+            String ergebnis = inputString("Enter the second number: ");
+            System.out.println("Users enters " + ergebnis);
+            if (ergebnis.equals(lösung)) {
+                System.out.println("RIGHT: The Result is " + lösung);    
+            } else {
+                System.out.println("WRONG: The Result is " + lösung);
+            }
+            wiederholen = inputString("Do you want to test again? Yes or no?");
+        } while (wiederholen.equals("yes"));
         System.out.println("Okay, goodbye!");
 
 
