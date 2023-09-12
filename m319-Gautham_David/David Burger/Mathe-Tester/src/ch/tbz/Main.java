@@ -55,9 +55,9 @@ public class Main {
             } if (operator.equals("*")) {
                 System.out.println(zahl1 + " * " + zahl2 + " = ?");
             }
-            String ergebnis = inputString("Enter the second number: ");
+            int ergebnis = inputInt("Enter the second number: ");
             System.out.println("Users enters " + ergebnis);
-            if (ergebnis.equals(lösung)) {
+            if (ergebnis == lösung) {
                 System.out.println("RIGHT: The Result is " + lösung);    
             } else {
                 System.out.println("WRONG: The Result is " + lösung);
