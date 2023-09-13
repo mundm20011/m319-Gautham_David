@@ -27,7 +27,6 @@ public class Main {
 
 
         Random random = new Random();
-        //Calling the nextInt() method
         int zahl1;
         int zahl2;
         int lösung;
