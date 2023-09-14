@@ -10,7 +10,7 @@ import java.util.*;                 // Random is part of this library
 import static ch.tbz.lib.Input.*;       // All the functions can be used now!
 
 //Every program must be placed in a class ...
-public class Main {
+public class KN_I1_SerieDa_DBurger {
 
     // Our main function which runs the program12
     public static void main(String[] args ) {
