@@ -1,3 +1,5 @@
+//Author: David Burger / Klasse: AP23D /
+
 // Defines package
 package ch.tbz;
 
@@ -31,22 +33,28 @@ public class KN_I1_SerieDa_DBurger {
         int zahl2;
         int lösung;
         String wiederholen;
+        String operator;
 
         lösung = 0+0;
+        operator = "+";
         
         do {
-            String operator = inputString("What do you want to train? +, - or * ?");
+            do {
+                operator = inputString("Was möchten Sie trainieren? +, - oder * ?");
+            } while (!operator.equals("+") && !operator.equals("-") && !operator.equals("*"));                       
             do {
                 zahl1 = random.nextInt(101);
                 zahl2 = random.nextInt(101);
                 if (operator.equals("+")) {
                     lösung = zahl1 + zahl2;
-                } if (operator.equals("-")) {
+                }
+                else if (operator.equals("-")) {
                     lösung = zahl1 - zahl2;
-                } if (operator.equals("*")) {
+                }
+                else if (operator.equals("*")) {
                     lösung = zahl1 * zahl2;
                 }
-            } while (lösung > 100);
+            } while (lösung > 100 || lösung < 0);
             if (operator.equals("+")) {
                 System.out.println(zahl1 + " + " + zahl2 + " = ?");
             } if (operator.equals("-")) {
