@@ -1,0 +1,20 @@
+Für Alle folgenen Fragen starten Sie das Programm und geben Sie jeweils immer "5" ein.
+
+
+1) Welche Zahl erscheint als erstes auf der Konsole?
+
+    Auf der Konsole erseint zu erst eine 2
+
+2) Sie setzen den Breakpoint bei der FOR-Schleife. Lassen Sie
+das Programm an diesem Breakpoint halten und gehen mehr-
+mals mit Einzelschritt bis die For-Schleife wieder markiert ist.
+Welcher Code-Teil würde nun als nächstes ausgeführt wer-
+den im Einzelschritt?
+
+    zaehler = zaehler + i + input;
+
+3) Nennen Sie drei Möglichkeiten den Inhalt einer bestimmten Variable (z.B. i) im Haltemodus anzeigen zu lassen?
+
+    Beim IDE VSCode kann man die Variables links unter local sehen wenn man ein Breakpoint gesetzt hat und  sich durch arbeitet./
+    eine weitere Möglichkeiten wäre die Variable im WATCH einfügen
+    eine dritte Möglichkeiten wäre im Haltemodus mit der maus über die Variable hovern
