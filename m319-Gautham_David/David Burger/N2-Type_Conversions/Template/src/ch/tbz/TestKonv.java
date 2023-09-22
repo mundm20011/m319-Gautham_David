@@ -11,7 +11,7 @@ public class TestKonv {
             float f = (float) d;    // >>> explicit conversion to float
             int i   =   (int) d;    // >>> explicit conversion to int
             byte b  =  (byte) d;    // >>> explicit conversion to byte
-            char c  =  (char) d;    // >>> explicit conversion to char
+            char c  =  (char) d;    // >>> explicit conversion to char  // Alt-Code?
 
             System.out.println("Double value " + d);
             System.out.println("Float  value " + f);
