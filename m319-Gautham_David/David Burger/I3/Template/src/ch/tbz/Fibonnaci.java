@@ -22,45 +22,82 @@ public class Fibonnaci {
         // Title
         System.out.println("Fibonnaci Zahlen:");
 
-        // Input
-        int start_zahl = inputInt("Geben Sie die Seite b ein: ");
-        int zähler = start_zahl;
-        int wechsel_zahl = 0;
+        // Variablen
+        int zaehler = 0;
+        int wechsel_zahl = 0; //besere variablen namen?
         int zahl1 = 1;
         int zahl2 = 0;
-        int zu_erreichender_zahl = inputInt("Geben Sie die zu erreichender zahl ein: ");
         int ergebnis = 0;
+        int unterschieds_beschraenkung = 20;
+        
+        //Input
+        int start_zahl = inputInt("Geben Sie die anfangs zahl ein: ");
+        int zu_erreichender_zahl = inputInt("Geben Sie die zu erreichender zahl ein: ");
+        
+
+        if (start_zahl == -543210 || zu_erreichender_zahl == -543210) {
+            unterschieds_beschraenkung = inputInt("Die änderung des 'unterschieds_beschraenkung' ist auf eigener gefahr");
+            start_zahl = inputInt("Geben Sie eine neue anfangs zahl ein: ");
+            zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
+        }
+
+        if (start_zahl < 0) {
+            System.out.println("wie es scheint haben sie eine Ungültige anfangs zahl eingegeben");
+            start_zahl = inputInt("Geben Sie eine neue anfangs zahl ein: ");
+        }
+        if (zu_erreichender_zahl < 0) {
+            System.out.println("wie es scheint haben sie eine Ungültige zu erreichender zahl eingegeben");
+            zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
+        }
+        if (zu_erreichender_zahl < start_zahl) {
+            System.out.println("wie es scheint haben sie eine Ungültige zu erreichender zahl eingegeben");
+            System.out.println("bitte achten sie darauf das die zu erreichender zahl " + zu_erreichender_zahl + " nicht kleiner als die start zahl " + start_zahl + " ist");
+            zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
+        }
+
+        if (zu_erreichender_zahl - start_zahl > unterschieds_beschraenkung) {
+            do {
+                System.out.println("Damit durch die berechnung die wartezeiten nicht zu hoch werden habe ich die anzahl ausgaben auf " +
+                unterschieds_beschraenkung + " beschränkt");
+                System.out.println("Bitte achten sie darauf das der unterschied der start zahl und der zu erreichender zahl nicht mehr als " +
+                unterschieds_beschraenkung + " ist");
+                start_zahl = inputInt("Geben Sie eine neue anfangs zahl ein: ");
+                zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
+            } while (zu_erreichender_zahl - start_zahl > unterschieds_beschraenkung);
+        }
 
         // Calculation
         do {
 
             if (ergebnis == start_zahl && start_zahl == 0) {
-                System.out.println(ergebnis);
+                System.out.println(ergebnis + " ist die fibonacci zahl von " + zaehler);
+            }
+            if (zaehler >= zu_erreichender_zahl) {
+                break;
             }
             if (wechsel_zahl == 0) {
                 ergebnis = zahl1 + zahl2;
                 zahl1 = ergebnis;
                 wechsel_zahl = wechsel_zahl + 1;
-                zähler = zähler + 1;
+                zaehler = zaehler + 1;
             }
-            if (ergebnis >= start_zahl) {
-                System.out.println(ergebnis);
+            if (zaehler >= start_zahl) {
+                System.out.println(ergebnis + " ist die fibonacci zahl von " + zaehler);
             }
-            if (ergebnis > zu_erreichender_zahl) {
+            if (zaehler >= zu_erreichender_zahl) {
                 break;
             }
             else if (wechsel_zahl == 1); {
                 ergebnis = zahl1 + zahl2;
                 zahl2 = ergebnis;
                 wechsel_zahl = wechsel_zahl - 1;
-                zähler = zähler + 1;
+                zaehler = zaehler + 1;
             }
-            if (ergebnis >= start_zahl) {
-                System.out.println(ergebnis);
+            if (zaehler >= start_zahl) {
+                System.out.println(ergebnis + " ist die fibonacci zahl von " + zaehler);
             }
 
-        } while (ergebnis < zu_erreichender_zahl);
-//muss noch ein break einbauen damit es nicht das else if ausführt wenn die zahl erreicht wurde
-
+        } while (zaehler < zu_erreichender_zahl);
+//ab zähler 47 wird merkwürdig online prüfen
     }
 }
