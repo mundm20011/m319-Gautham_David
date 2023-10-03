@@ -98,6 +98,9 @@ public class Fibonnaci {
             }
 
         } while (zaehler < zu_erreichender_zahl);
-//ab zähler 47 wird merkwürdig online prüfen
+//ab zähler 47 wird merkwürdig online prüfen //die zahl wird zu gross alles davor wird korekt angezeigt
+//2147483647 ist die höchst mögliche zahl bei Int
+//beschränkung? nicht höher als zähler 46?
+//andere Datentyp nicht `Int`?
     }
 }
