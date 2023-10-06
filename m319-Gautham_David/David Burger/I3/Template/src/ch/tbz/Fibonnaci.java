@@ -1,22 +1,14 @@
 // Defines package
 package ch.tbz;
 
-// Imports libraries
-//import static java.lang.System.*;   // System-IO Library for abbriviation purpose to static functions
-//import static java.lang.Math.*;     // Mathematic Library for abbriviation purpose to static functions
-//import java.util.*;                 // Random is part of this library
-
 // Imports Input functions
-import static ch.tbz.lib.Input.*;       // All the functions can be used now!
+import static ch.tbz.lib.Input.*;
 
 /* Die Fibonacci-Folge ist eine unendliche Folge von Zahlen (den Fibonacci-Zahlen),
 bei der sich die jeweils folgende Zahl durch Addition ihrer beiden vorherigen Zahlen ergibt: 0, 1, 1, 2, 3, 5, 8, 13/
 http://www.mat.uc.pt/~mat1164/FibonacciAN.html */
 
-//Every program must be placed in a class ...
 public class Fibonnaci {
-
-    // Our main function which runs the program12
     public static void main(String[] args ) {
 
         // Title
@@ -24,7 +16,7 @@ public class Fibonnaci {
 
         // Variablen
         int zaehler = 0;
-        int wechsel_zahl = 0; //besere variablen namen?
+        int wechsel_zahl = 0;
         int zahl1 = 1;
         int zahl2 = 0;
         int ergebnis = 0;
@@ -34,13 +26,13 @@ public class Fibonnaci {
         int start_zahl = inputInt("Geben Sie die anfangs zahl ein: ");
         int zu_erreichender_zahl = inputInt("Geben Sie die zu erreichender zahl ein: ");
         
-
+        //Optionen
         if (start_zahl == -543210 || zu_erreichender_zahl == -543210) {
             unterschieds_beschraenkung = inputInt("Die änderung des 'unterschieds_beschraenkung' ist auf eigener gefahr");
             start_zahl = inputInt("Geben Sie eine neue anfangs zahl ein: ");
             zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
         }
-
+        //Input Kontrolle
         do {
             if (start_zahl > 46 || zu_erreichender_zahl > 46) {
                 System.out.println("Da die Fibonnaci zahl bis ins unermässliche steigt erlaube ich nicht die zahl höher als 46 zu nutzen");
@@ -60,7 +52,6 @@ public class Fibonnaci {
                 System.out.println("bitte achten sie darauf das die zu erreichender zahl " + zu_erreichender_zahl + " nicht kleiner als die start zahl " + start_zahl + " ist");
                 zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
             }
-
             if (zu_erreichender_zahl - start_zahl > unterschieds_beschraenkung) {
                     System.out.println("Damit durch die berechnung die wartezeiten nicht zu hoch werden habe ich die anzahl ausgaben auf " +
                     unterschieds_beschraenkung + " beschränkt");
@@ -98,10 +89,5 @@ public class Fibonnaci {
                     }
             }
         } while (zaehler < zu_erreichender_zahl);
-//ab zähler 47 wird merkwürdig online prüfen //die zahl wird zu gross alles davor wird korekt angezeigt
-//2147483647 ist die höchst mögliche zahl bei Int
-//beschränkung? nicht höher als zähler 46?
-//andere Datentyp nicht `Int`?
-//Wissenschaftliche schreibweise mit E?
     }
 }
