@@ -41,30 +41,30 @@ public class Fibonnaci {
             zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
         }
 
-        if (start_zahl < 0) {
-            System.out.println("wie es scheint haben sie eine Ungültige anfangs zahl eingegeben");
-            start_zahl = inputInt("Geben Sie eine neue anfangs zahl ein: ");
-        }
-        if (zu_erreichender_zahl < 0) {
-            System.out.println("wie es scheint haben sie eine Ungültige zu erreichender zahl eingegeben");
-            zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
-        }
-        if (zu_erreichender_zahl < start_zahl) {
-            System.out.println("wie es scheint haben sie eine Ungültige zu erreichender zahl eingegeben");
-            System.out.println("bitte achten sie darauf das die zu erreichender zahl " + zu_erreichender_zahl + " nicht kleiner als die start zahl " + start_zahl + " ist");
-            zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
-        }
-
-        if (zu_erreichender_zahl - start_zahl > unterschieds_beschraenkung) {
-            do {
-                System.out.println("Damit durch die berechnung die wartezeiten nicht zu hoch werden habe ich die anzahl ausgaben auf " +
-                unterschieds_beschraenkung + " beschränkt");
-                System.out.println("Bitte achten sie darauf das der unterschied der start zahl und der zu erreichender zahl nicht mehr als " +
-                unterschieds_beschraenkung + " ist");
+        do {
+            if (start_zahl < 0) {
+                System.out.println("wie es scheint haben sie eine Ungültige anfangs zahl eingegeben");
                 start_zahl = inputInt("Geben Sie eine neue anfangs zahl ein: ");
+            }
+            if (zu_erreichender_zahl < 0) {
+                System.out.println("wie es scheint haben sie eine Ungültige zu erreichender zahl eingegeben");
                 zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
-            } while (zu_erreichender_zahl - start_zahl > unterschieds_beschraenkung);
-        }
+            }
+            if ( start_zahl > zu_erreichender_zahl) {
+                System.out.println("wie es scheint haben sie eine Ungültige zu erreichender zahl eingegeben");
+                System.out.println("bitte achten sie darauf das die zu erreichender zahl " + zu_erreichender_zahl + " nicht kleiner als die start zahl " + start_zahl + " ist");
+                zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
+            }
+
+            if (zu_erreichender_zahl - start_zahl > unterschieds_beschraenkung) {
+                    System.out.println("Damit durch die berechnung die wartezeiten nicht zu hoch werden habe ich die anzahl ausgaben auf " +
+                    unterschieds_beschraenkung + " beschränkt");
+                    System.out.println("Bitte achten sie darauf das der unterschied der start zahl und der zu erreichender zahl nicht mehr als " +
+                    unterschieds_beschraenkung + " ist");
+                    start_zahl = inputInt("Geben Sie eine neue anfangs zahl ein: ");
+                    zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
+                }
+        } while (start_zahl < 0 && zu_erreichender_zahl < 0 && start_zahl > zu_erreichender_zahl && zu_erreichender_zahl - start_zahl > unterschieds_beschraenkung);
 
         // Calculation
         do {
@@ -96,7 +96,6 @@ public class Fibonnaci {
             if (zaehler >= start_zahl) {
                 System.out.println(ergebnis + " ist die fibonacci zahl von " + zaehler);
             }
-
         } while (zaehler < zu_erreichender_zahl);
 //ab zähler 47 wird merkwürdig online prüfen //die zahl wird zu gross alles davor wird korekt angezeigt
 //2147483647 ist die höchst mögliche zahl bei Int
