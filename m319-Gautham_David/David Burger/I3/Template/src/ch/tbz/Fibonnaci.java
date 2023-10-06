@@ -42,6 +42,11 @@ public class Fibonnaci {
         }
 
         do {
+            if (start_zahl > 46 || zu_erreichender_zahl > 46) {
+                System.out.println("Da die Fibonnaci zahl bis ins unermässliche steigt erlaube ich nicht die zahl höher als 46 zu nutzen");
+                start_zahl = inputInt("Geben Sie die anfangs zahl ein: ");
+                zu_erreichender_zahl = inputInt("Geben Sie die zu erreichender zahl ein: ");
+            }
             if (start_zahl < 0) {
                 System.out.println("wie es scheint haben sie eine Ungültige anfangs zahl eingegeben");
                 start_zahl = inputInt("Geben Sie eine neue anfangs zahl ein: ");
@@ -64,42 +69,39 @@ public class Fibonnaci {
                     start_zahl = inputInt("Geben Sie eine neue anfangs zahl ein: ");
                     zu_erreichender_zahl = inputInt("Geben Sie eine neue zu erreichender zahl ein: ");
                 }
-        } while (start_zahl < 0 && zu_erreichender_zahl < 0 && start_zahl > zu_erreichender_zahl && zu_erreichender_zahl - start_zahl > unterschieds_beschraenkung);
-
+        } while (start_zahl < 0 || zu_erreichender_zahl < 0 || start_zahl > zu_erreichender_zahl || zu_erreichender_zahl - start_zahl > unterschieds_beschraenkung || start_zahl > 46 || zu_erreichender_zahl > 46);
+        
         // Calculation
-        do {
-
-            if (ergebnis == start_zahl && start_zahl == 0) {
+        if (ergebnis == start_zahl && start_zahl == 0) {
                 System.out.println(ergebnis + " ist die fibonacci zahl von " + zaehler);
             }
-            if (zaehler >= zu_erreichender_zahl) {
-                break;
-            }
+
+        do {
             if (wechsel_zahl == 0) {
                 ergebnis = zahl1 + zahl2;
                 zahl1 = ergebnis;
                 wechsel_zahl = wechsel_zahl + 1;
                 zaehler = zaehler + 1;
-            }
-            if (zaehler >= start_zahl) {
-                System.out.println(ergebnis + " ist die fibonacci zahl von " + zaehler);
-            }
-            if (zaehler >= zu_erreichender_zahl) {
-                break;
-            }
-            else if (wechsel_zahl == 1); {
+                    if (zaehler >= start_zahl) {
+                        System.out.println(ergebnis + " ist die fibonacci zahl von " + zaehler);
+                    }
+                    if (zaehler >= zu_erreichender_zahl) {
+                        break;
+                    }
+            } else {
                 ergebnis = zahl1 + zahl2;
                 zahl2 = ergebnis;
                 wechsel_zahl = wechsel_zahl - 1;
                 zaehler = zaehler + 1;
-            }
-            if (zaehler >= start_zahl) {
-                System.out.println(ergebnis + " ist die fibonacci zahl von " + zaehler);
+                    if (zaehler >= start_zahl) {
+                        System.out.println(ergebnis + " ist die fibonacci zahl von " + zaehler);
+                    }
             }
         } while (zaehler < zu_erreichender_zahl);
 //ab zähler 47 wird merkwürdig online prüfen //die zahl wird zu gross alles davor wird korekt angezeigt
 //2147483647 ist die höchst mögliche zahl bei Int
 //beschränkung? nicht höher als zähler 46?
 //andere Datentyp nicht `Int`?
+//Wissenschaftliche schreibweise mit E?
     }
 }
