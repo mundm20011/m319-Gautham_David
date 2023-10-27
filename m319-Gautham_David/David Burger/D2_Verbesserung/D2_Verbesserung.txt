@@ -1,0 +1,45 @@
+D2 Verbesserung
+
+Folgende [Fragen] wurden falsch beantwortet ➞ Richtige Lösung / Antwort ins Lernportfolio
+
+ 
+
+1) [Double.parseDouble( sEingabe )] ist eine Wrapperklasse ➞ Warum?
+
+    Double ist eine Wrapperklasse da sie den Datentyp double umhüllt (den wert)
+    die aufgabe der Wrapperklasse wäre die möglichen ausführungen von einen wert (double) zu verwalten und sagen was es machen muss.
+    Beim beispiel von parseDouble müsste man ohne die klasse mithilfe von Binarycode also strom ein strom aus sagen jetzt ist er der
+    Buchstabe 7.5 (110111) und jetzt ist es die zahl 7.5 (111) die Wrapperklasse übernimmt diese Aufgabe für uns.
+
+2) [namen.remove(0);] ist ein ArrayList ➞Warum?
+
+    name ist der Array name
+    .remove() ist eine funktion die sagt entferne(das in der klammer) aus den Array
+    (0) ist soviel ich weiss der index des array also 0 = das erste element in dem Array 3 = 4 element in dem Array
+
+3) Ist Sting ein komplexer oder primitiver Datentyp? ➞ Warum?  #Ist Sting? nicht String?
+
+    String
+
+    Wenn mit ganzen Zeichenketten gearbeitet werden soll, so kann man auf den String-Datentyp zurückgreifen.
+    Eigentlich ist String kein primitiver Datentyp, jedoch handelt es sich hierbei um eine Ausnahme
+    (Strings sind im Prinzip Arrays, also Listen von Chars).
+    Strings werden in doppelte Anführungszeichen gesetzt: "Das ist ein String!".
+    Außerdem können Strings eine beliebige Länge aufweisen.
+    https://de.serlo.org/informatik/35686/primitive-datentypen-variablen-und-arrays
+
+4) Wie muss der Dateiname der Java-Datei heissen, wenn die Klasse Test drin steht? public class Test() {
+
+    Der Dateinamen muss gleich heissen wie die class selbst also in diesem fall Test.java
+
+5) [ eingabe = inputString( "Passwort?"); ] Was ist inputString() ?
+
+    wenn ich es richtig verstanden habe gibt es in Java keine function sondern nur Methoden also wäre inputString() eine Methode
+    in diesen beispiel würde inputString() die eingegebenen wert als Variable/constanten abspeichern
+
+    Methoden sind glaubs funktionen innerhalb einer klasse und da java dateien immer aus einer classe besteht ist es eine Methode
+
+6) Kann static bei lokalen Variablen angewendet werden?
+
+    Wenn ich es richtig verstanden habe kann man static nicht bei lokalen variablen anwenden da static es von aussen zugreifbar macht
+    wie bei der Methode java.util.Random
