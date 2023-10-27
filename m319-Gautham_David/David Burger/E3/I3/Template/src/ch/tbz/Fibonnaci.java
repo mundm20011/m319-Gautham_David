@@ -1,3 +1,13 @@
+/**
+ * Fibonnaci
+ * 
+ * Beschreibung
+ * 
+ * Author
+ * version/datum
+ */
+
+
 // Defines package
 package ch.tbz;
 
@@ -14,13 +24,13 @@ public class Fibonnaci {
         // Title
         System.out.println("Fibonnaci Zahlen:");
 
-        // Variablen
-        int zaehler = 0;
-        int wechsel_zahl = 0;
+        // Variablenliste
+        int zaehler = 0;        // 
+        int wechsel_zahl = 0;   // Fibu rechnung
         int zahl1 = 1;
         int zahl2 = 0;
         int ergebnis = 0;
-        int unterschieds_beschraenkung = 20;
+        int unterschieds_beschraenkung = 20;  // bessere darstellung
         
         //Input
         int start_zahl = inputInt("Geben Sie die anfangs zahl ein: ");
@@ -71,7 +81,7 @@ public class Fibonnaci {
             if (wechsel_zahl == 0) {
                 ergebnis = zahl1 + zahl2;
                 zahl1 = ergebnis;
-                wechsel_zahl = wechsel_zahl + 1;
+                wechsel_zahl = wechsel_zahl + 1;  // 
                 zaehler = zaehler + 1;
                     if (zaehler >= start_zahl) {
                         System.out.println(ergebnis + " ist die fibonacci zahl von " + zaehler);
