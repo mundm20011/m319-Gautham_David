@@ -29,7 +29,7 @@ public class KN_A3_SerieAe_DBurger {
                 }
                 j += 1;                 // get next character to compare
             }
-            i += 1;                     // get next cgaracter to sort
+            i += 1;                     // get next character to sort
         }
         // Output sorted Array
         System.out.println(arr);
