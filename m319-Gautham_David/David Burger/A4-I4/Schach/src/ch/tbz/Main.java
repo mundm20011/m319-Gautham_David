@@ -23,6 +23,9 @@ public class Main {
         // Darsstellung Erste Buchstabe der Figur + ihr wert
         // Darsstellung der Figur Bauer B1
 
+        // O && X kann ich mit hilfe von findInString rausfinden was für ein feld (für Validierung beispiel läufer)
+        // bezeichnung b,s,l,t,d,k kann ich für findInString Validierung nutzen
+
         String[] brett = {" 8 ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", 
                             " 7 ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", 
                             " 6 ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", 
@@ -39,6 +42,7 @@ public class Main {
         String laeufer = "Läufer 3 l3";
         String springer = "Springer 3 s3";
         String bauer = "Bauer 1 b1";*/
+        String picker;
         
         String neuesSpiel = inputString("bitte geben sie neuesSpiel ein");
 
@@ -73,14 +77,33 @@ public class Main {
                 System.out.print("|");
                 teiler = teiler + 1;
             }
-
+        };
             String vonFeld = inputString("bitte geben sie ein von welchen Feld sie bewegen");
             String nachFeld = inputString("bitte geben sie ein zu welchen feld die figur gehen soll");
 
-            if (vonFeld.equals("A3")) {
-                brett[50] = " X ";
+            if (vonFeld.equals("A2")) {
+                picker = brett[55];
+                brett[55] = " O ";
+                if (nachFeld.equals("A3")) {
+                    brett[46] = picker;
+                }
             }
-        };
+
+            for (int i = 0; i < brettSize; i++) {
+                /*if (i == 8 || i == 17 || i == 26 || i == 35 || i == 44 || i == 53 || i == 62 || i == 71 || i == 80) {
+                    System.out.println(brett[i]);
+                }*/
+                if (teiler == 8) {
+                    System.out.println(brett[i]);
+                    System.out.println("___________________________________");
+                    teiler = 0;
+                }
+                else {
+                    System.out.print(brett[i]);
+                    System.out.print("|");
+                    teiler = teiler + 1;
+                }
+            }
 
         /*System.out.println(Arrays.toString(brett));
         System.out.println(Arrays.toString(brett));*/
