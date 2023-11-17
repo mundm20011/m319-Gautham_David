@@ -24,13 +24,16 @@ public class Main {
         // jede Figur hat einen Wert
         // Darsstellung O = Weiss
         // Darsstellung X = Schwarz
-        // Darsstellung Erste Buchstabe der Figur + ihr wert
-        // Darsstellung der Figur Bauer B1
+        // Darsstellung Erste Buchstabe der Figur + ihr Farbe
+        // Darsstellung der Figur Bauer Bw
+        //FIGUR ALS OBJEKT?
+        // spielerwechsel nachricht immer wenn zug erfolgreich für system bedingung schalter nummer
+        // Figuren Awarness check
 
         // O && X kann ich mit hilfe von findInString rausfinden was für ein feld (für Validierung beispiel läufer)
         // bezeichnung b,s,l,t,d,k kann ich für findInString Validierung nutzen
 
-        String[] brett = {" 8 ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", 
+        String[] brettStart = {" 8 ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", 
                             " 7 ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", 
                             " 6 ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", 
                             " 5 ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", 
@@ -38,6 +41,16 @@ public class Main {
                             " 3 ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", 
                             " 2 ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", 
                             " 1 ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", 
+                            " - ", " A ", " B ", " C ", " D ", " E ", " F ", " G ", " H "};
+
+        String[] brett = {" 8 ", "tOs", "sXs", "lOs", "kXs", "dOs", "lXs", "sOs", "tXs",        // innerhalb loop mit slice X oder O einfügen
+                            " 7 ", "bXs", "bOs", "bXs", "bOs", "bXs", "bOs", "bXs", "bOs", 
+                            " 6 ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", 
+                            " 5 ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", 
+                            " 4 ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", 
+                            " 3 ", " X ", " O ", " X ", " O ", " X ", " O ", " X ", " O ", 
+                            " 2 ", "bOw", "bXw", "bOw", "bXw", "bOw", "bXw", "bOw", "bXw", 
+                            " 1 ", "tXw", "sOw", "lXw", "dOw", "kXw", "lOw", "sXw", "tOw", 
                             " - ", " A ", " B ", " C ", " D ", " E ", " F ", " G ", " H "};
 
         String[] position = {" 8 ", "A8", "B8", "C8", "D8", "E8", "F8", "G8", "H8", 
@@ -62,7 +75,7 @@ public class Main {
         String bauer = "Bauer 1 b1";*/
         String picker;
         
-        String spielStart = inputString("bitte geben sie spielStart ein");
+        /*String spielStart = inputString("bitte geben sie spielStart ein");
 
         if (spielStart.equals("spielStart")) {                                      //Bug Die Felder sind so fest an die Figur Gebunden
             brett[10] = "bXs"; brett[11] = "bOs"; brett[12] = "bXs"; brett[13] = "bOs";
@@ -76,18 +89,19 @@ public class Main {
 
             brett[64] = "tXw"; brett[65] = "sOw"; brett[66] = "lXw"; brett[67] = "dOw";
             brett[68] = "kXw"; brett[69] = "lOw"; brett[70] = "sXw"; brett[71] = "tOw";
-        }
+        }*/
 
         int brettSize = brett.length;
         int teiler = 0;
+        int spielerWechsel = 1;
         
         List<String> siegesBedingung  = Arrays.asList(brett);
         String zielSchwarz = "kXw";
         String zielWeiss = "kXs";
         int zaehlerWeiss = Collections.frequency(siegesBedingung, zielSchwarz);
         int zaehlerSchwarz = Collections.frequency(siegesBedingung, zielWeiss);
-        System.out.println(zielSchwarz + " " + zaehlerWeiss);
-        System.out.println(zielWeiss + " " + zaehlerSchwarz);
+        //System.out.println(zielSchwarz + " " + zaehlerWeiss);
+        //System.out.println(zielWeiss + " " + zaehlerSchwarz);
         
 
         do {
@@ -114,34 +128,315 @@ public class Main {
             indexnach = positionList.indexOf(nachFeld);
 
             picker = brett[indexvon];
-            //Bauer Validirung
-            if (brett[indexvon] == "bXs" || brett[indexvon] == "bOs") {
-                if (indexnach == indexvon + 9) {
-                    brett[indexnach] = picker;
-                }
-                else {
-                    zaehlerSchwarz = 0;
+            //Bauer Validirung InProgress
+            if (spielerWechsel == 0) {
+                if (brett[indexvon] == "bXs" || brett[indexvon] == "bOs") {
+                    if (indexvon == 10 && indexnach == indexvon + 18 ||
+                        indexvon == 11 && indexnach == indexvon + 18 ||
+                        indexvon == 12 && indexnach == indexvon + 18 ||
+                        indexvon == 13 && indexnach == indexvon + 18 ||
+                        indexvon == 14 && indexnach == indexvon + 18 ||
+                        indexvon == 15 && indexnach == indexvon + 18 ||
+                        indexvon == 16 && indexnach == indexvon + 18 ||
+                        indexvon == 17 && indexnach == indexvon + 18) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel + 1;
+                        }
+                    if (indexnach == indexvon + 9) {
+                        brett[indexnach] = picker;
+                        brett[indexvon] = brettStart[indexvon];
+                        spielerWechsel = spielerWechsel + 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
                 }
             }
-            if (brett[indexvon] == "bXw" || brett[indexvon] == "bOw") {
-                if (indexnach == indexvon - 9) {
-                    brett[indexnach] = picker;
+            if (spielerWechsel == 1) {
+                if (brett[indexvon] == "bXw" || brett[indexvon] == "bOw") {
+                    if (indexvon == 55 && indexnach == indexvon - 18 ||
+                        indexvon == 56 && indexnach == indexvon - 18 ||
+                        indexvon == 57 && indexnach == indexvon - 18 ||
+                        indexvon == 58 && indexnach == indexvon - 18 ||
+                        indexvon == 59 && indexnach == indexvon - 18 ||
+                        indexvon == 60 && indexnach == indexvon - 18 ||
+                        indexvon == 61 && indexnach == indexvon - 18 ||
+                        indexvon == 62 && indexnach == indexvon - 18) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel - 1;
+                        }
+                    if (indexnach == indexvon - 9) {
+                        brett[indexnach] = picker;
+                        brett[indexvon] = brettStart[indexvon];
+                        spielerWechsel = spielerWechsel - 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
                 }
-                else {
-                    zaehlerSchwarz = 0;
+            }
+            //Turm Validirung
+            if (spielerWechsel == 0) {
+                if (brett[indexvon] == "tXs" || brett[indexvon] == "tOs") {
+                    if (indexnach == indexvon + 9  || indexnach == indexvon + 18 ||
+                        indexnach == indexvon + 27 || indexnach == indexvon + 36 ||
+                        indexnach == indexvon + 45 || indexnach == indexvon + 54 ||
+                        indexnach == indexvon + 63 ||
+                        indexnach == indexvon - 9  || indexnach == indexvon - 18 ||
+                        indexnach == indexvon - 27 || indexnach == indexvon - 36 ||
+                        indexnach == indexvon - 45 || indexnach == indexvon - 54 ||
+                        indexnach == indexvon - 63 ||
+                        indexnach == indexvon + 1  || indexnach == indexvon + 2  ||
+                        indexnach == indexvon + 3  || indexnach == indexvon + 4  ||
+                        indexnach == indexvon + 5  || indexnach == indexvon + 6  ||
+                        indexnach == indexvon + 7  ||
+                        indexnach == indexvon - 1  || indexnach == indexvon - 2  ||
+                        indexnach == indexvon - 3  || indexnach == indexvon - 4  ||
+                        indexnach == indexvon - 5  || indexnach == indexvon - 6  ||
+                        indexnach == indexvon - 7 ) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel + 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
+                }
+            }
+            if (spielerWechsel == 1) {
+                if (brett[indexvon] == "tXw" || brett[indexvon] == "tOw") {
+                    if (indexnach == indexvon + 9  || indexnach == indexvon + 18 ||
+                        indexnach == indexvon + 27 || indexnach == indexvon + 36 ||
+                        indexnach == indexvon + 45 || indexnach == indexvon + 54 ||
+                        indexnach == indexvon + 63 ||
+                        indexnach == indexvon - 9  || indexnach == indexvon - 18 ||
+                        indexnach == indexvon - 27 || indexnach == indexvon - 36 ||
+                        indexnach == indexvon - 45 || indexnach == indexvon - 54 ||
+                        indexnach == indexvon - 63 ||
+                        indexnach == indexvon + 1  || indexnach == indexvon + 2  ||
+                        indexnach == indexvon + 3  || indexnach == indexvon + 4  ||
+                        indexnach == indexvon + 5  || indexnach == indexvon + 6  ||
+                        indexnach == indexvon + 7  ||
+                        indexnach == indexvon - 1  || indexnach == indexvon - 2  ||
+                        indexnach == indexvon - 3  || indexnach == indexvon - 4  ||
+                        indexnach == indexvon - 5  || indexnach == indexvon - 6  ||
+                        indexnach == indexvon - 7 ) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel - 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
                 }
             }
             //Springer Validirung
-            if (brett[indexvon] == "sXs" || brett[indexvon] == "sOs") {
-                if (indexnach == indexvon + 11 || indexnach == indexvon + 7 ||
-                    indexnach == indexvon + 19 || indexnach == indexvon + 13) {
-                    brett[indexnach] = picker;
-                }
-                else {
-                    zaehlerSchwarz = 0;
+            if (spielerWechsel == 0) {
+                if (brett[indexvon] == "sXs" || brett[indexvon] == "sOs") {
+                    if (indexnach == indexvon + 11 || indexnach == indexvon + 7  ||
+                        indexnach == indexvon + 19 || indexnach == indexvon + 17 ||
+                        indexnach == indexvon - 11 || indexnach == indexvon - 7  ||
+                        indexnach == indexvon - 19 || indexnach == indexvon - 17) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel + 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
                 }
             }
-            brett[indexvon] = " O ";
+            if (spielerWechsel == 1) {
+                if (brett[indexvon] == "sXw" || brett[indexvon] == "sOw") {
+                    if (indexnach == indexvon - 11 || indexnach == indexvon - 7 ||
+                        indexnach == indexvon - 19 || indexnach == indexvon - 17 ||
+                        indexnach == indexvon + 11 || indexnach == indexvon + 7 ||
+                        indexnach == indexvon + 19 || indexnach == indexvon + 17) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel - 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
+                }
+            }
+            //Läufer Validirung (have a Bug)
+            if (spielerWechsel == 0) {
+                if (brett[indexvon] == "lXs" || brett[indexvon] == "lOs") {
+                    if (indexnach == indexvon + 8  || indexnach == indexvon + 10 ||
+                        indexnach == indexvon + 16 || indexnach == indexvon + 20 ||
+                        indexnach == indexvon + 24 || indexnach == indexvon + 30 ||
+                        indexnach == indexvon + 36 || indexnach == indexvon + 40 ||
+                        indexnach == indexvon + 44 || indexnach == indexvon + 50 ||
+                        indexnach == indexvon + 52 || indexnach == indexvon + 60 ||
+                        indexnach == indexvon + 60 || indexnach == indexvon + 70 ||
+                        indexnach == indexvon - 8  || indexnach == indexvon - 10 ||
+                        indexnach == indexvon - 16 || indexnach == indexvon - 20 ||
+                        indexnach == indexvon - 24 || indexnach == indexvon - 30 ||
+                        indexnach == indexvon - 32 || indexnach == indexvon - 40 ||
+                        indexnach == indexvon - 40 || indexnach == indexvon - 50 ||
+                        indexnach == indexvon - 48 || indexnach == indexvon - 60 ||
+                        indexnach == indexvon - 56 || indexnach == indexvon - 70) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel + 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
+                }
+            }
+            if (spielerWechsel == 1) {
+                if (brett[indexvon] == "lXw" || brett[indexvon] == "lOw") {
+                    if (indexnach == indexvon + 8  || indexnach == indexvon + 10 ||
+                        indexnach == indexvon + 16 || indexnach == indexvon + 20 ||
+                        indexnach == indexvon + 24 || indexnach == indexvon + 30 ||
+                        indexnach == indexvon + 36 || indexnach == indexvon + 40 ||
+                        indexnach == indexvon + 44 || indexnach == indexvon + 50 ||
+                        indexnach == indexvon + 52 || indexnach == indexvon + 60 ||
+                        indexnach == indexvon + 60 || indexnach == indexvon + 70 ||
+                        indexnach == indexvon - 8  || indexnach == indexvon - 10 ||
+                        indexnach == indexvon - 16 || indexnach == indexvon - 20 ||
+                        indexnach == indexvon - 24 || indexnach == indexvon - 30 ||
+                        indexnach == indexvon - 32 || indexnach == indexvon - 40 ||
+                        indexnach == indexvon - 40 || indexnach == indexvon - 50 ||
+                        indexnach == indexvon - 48 || indexnach == indexvon - 60 ||
+                        indexnach == indexvon - 56 || indexnach == indexvon - 70) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel - 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
+                }
+            }
+            //Dame Validirung
+            if (spielerWechsel == 0) {
+                if (brett[indexvon] == "dOs") {
+                    if (indexnach == indexvon + 9  || indexnach == indexvon + 18 ||
+                        indexnach == indexvon + 27 || indexnach == indexvon + 36 ||
+                        indexnach == indexvon + 45 || indexnach == indexvon + 54 ||
+                        indexnach == indexvon + 63 ||
+                        indexnach == indexvon - 9  || indexnach == indexvon - 18 ||
+                        indexnach == indexvon - 27 || indexnach == indexvon - 36 ||
+                        indexnach == indexvon - 45 || indexnach == indexvon - 54 ||
+                        indexnach == indexvon - 63 ||
+                        indexnach == indexvon + 1  || indexnach == indexvon + 2  ||
+                        indexnach == indexvon + 3  || indexnach == indexvon + 4  ||
+                        indexnach == indexvon + 5  || indexnach == indexvon + 6  ||
+                        indexnach == indexvon + 7  ||
+                        indexnach == indexvon - 1  || indexnach == indexvon - 2  ||
+                        indexnach == indexvon - 3  || indexnach == indexvon - 4  ||
+                        indexnach == indexvon - 5  || indexnach == indexvon - 6  ||
+                        indexnach == indexvon - 7  ||
+                        indexnach == indexvon + 8  || indexnach == indexvon + 10 ||
+                        indexnach == indexvon + 16 || indexnach == indexvon + 20 ||
+                        indexnach == indexvon + 24 || indexnach == indexvon + 30 ||
+                        indexnach == indexvon + 36 || indexnach == indexvon + 40 ||
+                        indexnach == indexvon + 44 || indexnach == indexvon + 50 ||
+                        indexnach == indexvon + 52 || indexnach == indexvon + 60 ||
+                        indexnach == indexvon + 60 || indexnach == indexvon + 70 ||
+                        indexnach == indexvon - 8  || indexnach == indexvon - 10 ||
+                        indexnach == indexvon - 16 || indexnach == indexvon - 20 ||
+                        indexnach == indexvon - 24 || indexnach == indexvon - 30 ||
+                        indexnach == indexvon - 36 || indexnach == indexvon - 40 ||
+                        indexnach == indexvon - 44 || indexnach == indexvon - 50 ||
+                        indexnach == indexvon - 52 || indexnach == indexvon - 60 ||
+                        indexnach == indexvon - 60 || indexnach == indexvon - 70 ||
+                        indexnach == indexvon + 11 || indexnach == indexvon + 7  ||
+                        indexnach == indexvon + 19 || indexnach == indexvon + 17 ||
+                        indexnach == indexvon - 11 || indexnach == indexvon - 7  ||
+                        indexnach == indexvon - 19 || indexnach == indexvon - 17) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel + 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
+                }
+            }
+            if (spielerWechsel == 1) {
+                if (brett[indexvon] == "dOw") {
+                    if (indexnach == indexvon + 9  || indexnach == indexvon + 18 ||
+                        indexnach == indexvon + 27 || indexnach == indexvon + 36 ||
+                        indexnach == indexvon + 45 || indexnach == indexvon + 54 ||
+                        indexnach == indexvon + 63 ||
+                        indexnach == indexvon - 9  || indexnach == indexvon - 18 ||
+                        indexnach == indexvon - 27 || indexnach == indexvon - 36 ||
+                        indexnach == indexvon - 45 || indexnach == indexvon - 54 ||
+                        indexnach == indexvon - 63 ||
+                        indexnach == indexvon + 1  || indexnach == indexvon + 2  ||
+                        indexnach == indexvon + 3  || indexnach == indexvon + 4  ||
+                        indexnach == indexvon + 5  || indexnach == indexvon + 6  ||
+                        indexnach == indexvon + 7  ||
+                        indexnach == indexvon - 1  || indexnach == indexvon - 2  ||
+                        indexnach == indexvon - 3  || indexnach == indexvon - 4  ||
+                        indexnach == indexvon - 5  || indexnach == indexvon - 6  ||
+                        indexnach == indexvon - 7  ||
+                        indexnach == indexvon + 8  || indexnach == indexvon + 10 ||
+                        indexnach == indexvon + 16 || indexnach == indexvon + 20 ||
+                        indexnach == indexvon + 24 || indexnach == indexvon + 30 ||
+                        indexnach == indexvon + 36 || indexnach == indexvon + 40 ||
+                        indexnach == indexvon + 44 || indexnach == indexvon + 50 ||
+                        indexnach == indexvon + 52 || indexnach == indexvon + 60 ||
+                        indexnach == indexvon + 60 || indexnach == indexvon + 70 ||
+                        indexnach == indexvon - 8  || indexnach == indexvon - 10 ||
+                        indexnach == indexvon - 16 || indexnach == indexvon - 20 ||
+                        indexnach == indexvon - 24 || indexnach == indexvon - 30 ||
+                        indexnach == indexvon - 36 || indexnach == indexvon - 40 ||
+                        indexnach == indexvon - 44 || indexnach == indexvon - 50 ||
+                        indexnach == indexvon - 52 || indexnach == indexvon - 60 ||
+                        indexnach == indexvon - 60 || indexnach == indexvon - 70 ||
+                        indexnach == indexvon + 11 || indexnach == indexvon + 7  ||
+                        indexnach == indexvon + 19 || indexnach == indexvon + 17 ||
+                        indexnach == indexvon - 11 || indexnach == indexvon - 7  ||
+                        indexnach == indexvon - 19 || indexnach == indexvon - 17) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel - 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
+                }
+            }
+            //König Validirung
+            if (spielerWechsel == 0) {
+                if (brett[indexvon] == "kXs") {
+                    if (indexnach == indexvon + 1 || indexnach == indexvon + 8 ||
+                        indexnach == indexvon + 9 || indexnach == indexvon + 10 ||
+                        indexnach == indexvon - 1 || indexnach == indexvon - 8 ||
+                        indexnach == indexvon - 9 || indexnach == indexvon - 10) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel + 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
+                }
+            }
+            if (spielerWechsel == 1) {
+                if (brett[indexvon] == "kXw") {
+                    if (indexnach == indexvon + 1 || indexnach == indexvon + 8 ||
+                        indexnach == indexvon + 9 || indexnach == indexvon + 10 ||
+                        indexnach == indexvon - 1 || indexnach == indexvon - 8 ||
+                        indexnach == indexvon - 9 || indexnach == indexvon - 10) {
+                            brett[indexnach] = picker;
+                            brett[indexvon] = brettStart[indexvon];
+                            spielerWechsel = spielerWechsel - 1;
+                    }
+                    else {
+                        System.out.println("Dies war eine ungültiger Zug Bitte machen sie einen Anderen Zug");
+                    }
+                }
+            }
+            //Rouche
         } while (zaehlerSchwarz == 1 && zaehlerWeiss == 1);
 
         /*System.out.println(Arrays.toString(brett));
